@@ -8,15 +8,24 @@ VOLUME=${VOLUME:-/data}
 
 
 setup_sshd(){
-	if [ -e "/root/.ssh/authorized_keys" ]; then
-        chmod 400 /root/.ssh/authorized_keys
-        chown root:root /root/.ssh/authorized_keys
-    else
+	# ensure .ssh dir exists for root user
+	if ! [ -e "/root/.ssh"] ; then
 		mkdir -p /root/.ssh
 		chown root:root /root/.ssh
-    fi
-    chmod 750 /root/.ssh
-    echo "root:$PASSWORD" | chpasswd
+	fi
+
+	# add authorized keys if defined
+	if ! [ -z "${AUTHORIZED_KEYS}"] ; then
+	  echo ${AUTHORIZED_KEYS} > /root/.ssh/authorized_keys
+	fi
+
+	# ensure correct permission of the file
+	if [ -e "/root/.ssh/authorized_keys" ]; then
+    chmod 400 /root/.ssh/authorized_keys
+    chown root:root /root/.ssh/authorized_keys	
+  fi
+  chmod 750 /root/.ssh
+  echo "root:$PASSWORD" | chpasswd
 }
 
 setup_rsyncd(){

@@ -1,5 +1,5 @@
 FROM debian:buster
-MAINTAINER Kyle Wilcox <kyle@axiomdatascience.com>
+LABEL maintainer=thomas.bruckmann@softgarden.de
 ENV DEBIAN_FRONTEND noninteractive
 ENV LANG C.UTF-8
 ENV NOTVISIBLE "in users profile"

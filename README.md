@@ -62,11 +62,11 @@ total size is 0  speedup is 0.00
 
 Variable options (on run)
 
-* `USERNAME` - the `rsync` username. defaults to `user`
-* `PASSWORD` - the `rsync` password. defaults to `pass`
-* `VOLUME`   - the path for `rsync`. defaults to `/data`
-* `ALLOW`    - space separated list of allowed sources. defaults to `192.168.0.0/16 172.16.0.0/12`.
-
+* `USERNAME`        - the `rsync` username. defaults to `user`
+* `PASSWORD`        - the `rsync` password. defaults to `pass`
+* `VOLUME`          - the path for `rsync`. defaults to `/data`
+* `ALLOW`           - space separated list of allowed sources. defaults to `192.168.0.0/16 172.16.0.0/12`.
+* `ÀUTHORIZED_KEYS` - list of authorized ssh keys to allow for user root
 
 ##### Simple server on port 873
 
